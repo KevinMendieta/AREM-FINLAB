@@ -8,7 +8,6 @@ package org.edu.eci.arem.logsapi;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.jms.Connection;
-import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageConsumer;
@@ -35,7 +34,7 @@ public class LogsAPIApplication {
     public static void main(String[] args) throws JMSException {
         SpringApplication.run(LogsAPIApplication.class, args);
         
-        /*ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("vm://ec2-52-32-88-131.us-west-2.compute.amazonaws.com");
+        ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("vm://ec2-52-32-88-131.us-west-2.compute.amazonaws.com");
         Connection connection = connectionFactory.createConnection();
         connection.start();
         
@@ -57,7 +56,7 @@ public class LogsAPIApplication {
             }
         };
         consumer.setMessageListener(listner);
-        connection.close();*/
+        connection.close();
     }
     
     @Autowired
