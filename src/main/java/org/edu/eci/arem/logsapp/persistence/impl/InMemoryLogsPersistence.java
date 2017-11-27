@@ -22,7 +22,9 @@ public class InMemoryLogsPersistence implements LogsPersistence{
     
     public InMemoryLogsPersistence() {
         messages = new ConcurrentLinkedDeque<>();
-        messages.add("<] : { v");
+        messages.add("Email enviado a sebastian.moreno@gmail.com");
+        messages.add("Email enviado a prueba@mail.com");
+        messages.add("Email enviado a xdkevinxd12@gmail.com");
     }
 
     @Override
