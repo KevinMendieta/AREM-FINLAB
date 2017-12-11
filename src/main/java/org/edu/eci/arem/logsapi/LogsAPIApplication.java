@@ -5,33 +5,6 @@
  */
 package org.edu.eci.arem.logsapi;
 
-<<<<<<< HEAD
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import javax.jms.Connection;
-import javax.jms.ConnectionFactory;
-import javax.jms.DeliveryMode;
-import javax.jms.Destination;
-import javax.jms.MessageProducer;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import org.apache.activemq.ActiveMQConnectionFactory;
-import org.apache.camel.CamelContext;
-import org.apache.camel.impl.DefaultCamelContext;
-=======
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.jms.Connection;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
-import javax.jms.MessageListener;
-import javax.jms.Session;
-import javax.jms.TextMessage;
-import javax.jms.Topic;
-import org.apache.activemq.ActiveMQConnectionFactory;
->>>>>>> 88723c0684029723e3b0cd91a0a00ccbb908ee4a
 import org.edu.eci.arem.logsapp.services.LogsServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
