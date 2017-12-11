@@ -1,5 +1,0 @@
-org\edu\eci\arem\logsapp\controllers\LogsAPIController.class
-org\edu\eci\arem\logsapp\services\LogsServices.class
-org\edu\eci\arem\logsapi\LogsAPIApplication.class
-org\edu\eci\arem\logsapp\persistence\impl\InMemoryLogsPersistence.class
-org\edu\eci\arem\logsapp\persistence\LogsPersistence.class
