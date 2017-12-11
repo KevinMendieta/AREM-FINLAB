@@ -25,6 +25,7 @@ import org.springframework.stereotype.Service;
  *
  * @author 2106457
  */
+@Service
 public class HelloWorldConsumer extends Thread implements ExceptionListener {
 
     private LogsServices logsServices;
