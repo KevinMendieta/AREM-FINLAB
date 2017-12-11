@@ -17,10 +17,7 @@ import org.springframework.stereotype.Service;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.edu.eci.arem.logsapp"})
-@Service
 public class LogsAPIApplication {
-
-    private static LogsServices logServices;
 
     public static void main(String[] args) {
         LogsAPIApplication ap = new LogsAPIApplication();
@@ -30,13 +27,8 @@ public class LogsAPIApplication {
     }
     
     public void run() {
-        HelloWorldConsumer hl = new HelloWorldConsumer(logServices);
+        HelloWorldConsumer hl = new HelloWorldConsumer();
         hl.start();
-    }
-
-    @Autowired
-    public void setLogServices(LogsServices logServices) {
-        this.logServices = logServices;
     }
 
 }

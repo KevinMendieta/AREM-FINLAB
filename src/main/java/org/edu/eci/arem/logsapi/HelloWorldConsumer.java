@@ -29,8 +29,13 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
 
     private LogsServices logsServices;
 
-    public HelloWorldConsumer(LogsServices logsServices) {
-        this.logsServices = logsServices;
+    @Autowired
+    public void setLogServices(LogsServices logServices) {
+        this.logsServices = logServices;
+    }
+    
+    public HelloWorldConsumer() {
+        
     }
 
     public void run() {
