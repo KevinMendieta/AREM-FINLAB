@@ -40,8 +40,8 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
         try {
 
             // Create a ConnectionFactory
-            //ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://ec2-52-32-88-131.us-west-2.compute.amazonaws.com:61616?jms.useAsyncSend=true");
-            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616?jms.useAsyncSend=true");
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://ec2-52-32-88-131.us-west-2.compute.amazonaws.com:61616?jms.useAsyncSend=true");
+            //ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616?jms.useAsyncSend=true");
             // Create a Connection
             Connection connection = connectionFactory.createConnection("smx", "smx");
             connection.start();
