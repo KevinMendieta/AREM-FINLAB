@@ -69,7 +69,6 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
                 } else {
                     System.out.println("Received: " + message);
                 }
-                logsServices.storeMessage(text);
             }
 
         } catch (Exception e) {
