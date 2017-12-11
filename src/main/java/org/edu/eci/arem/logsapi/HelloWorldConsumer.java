@@ -25,7 +25,6 @@ import org.springframework.stereotype.Service;
  *
  * @author 2106457
  */
-@Service
 public class HelloWorldConsumer extends Thread implements ExceptionListener {
 
     private LogsServices logsServices;
@@ -82,12 +81,5 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
     public synchronized void onException(JMSException ex) {
         System.out.println("JMS Exception occured.  Shutting down client.");
     }
-    
-    @Autowired
-    public void setLogsServices(LogsServices logsServices) {
-        this.logsServices = logsServices;
-    }
-    
-    
-    
+
 }
