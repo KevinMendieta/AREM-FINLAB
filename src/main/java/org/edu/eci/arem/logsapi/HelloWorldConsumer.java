@@ -18,11 +18,14 @@ import javax.jms.Session;
 import javax.jms.TextMessage;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.edu.eci.arem.logsapp.services.LogsServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author 2106457
  */
+@Service
 public class HelloWorldConsumer extends Thread implements ExceptionListener {
 
     private LogsServices logsServices;
@@ -63,6 +66,7 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
                     TextMessage textMessage = (TextMessage) message;
                     text += textMessage.getText();
                     System.out.println("Received: " + text);
+                    logsServices.storeMessage(text);
                 } else {
                     System.out.println("Received: " + message);
                 }
@@ -78,4 +82,12 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
     public synchronized void onException(JMSException ex) {
         System.out.println("JMS Exception occured.  Shutting down client.");
     }
+    
+    @Autowired
+    public void setLogsServices(LogsServices logsServices) {
+        this.logsServices = logsServices;
+    }
+    
+    
+    
 }
