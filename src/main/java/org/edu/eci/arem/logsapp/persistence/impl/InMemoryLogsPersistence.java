@@ -18,10 +18,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class InMemoryLogsPersistence implements LogsPersistence{
     
-    private final ConcurrentLinkedDeque<String> messages;
+    private static final ConcurrentLinkedDeque<String> messages = new ConcurrentLinkedDeque<>();;
     
     public InMemoryLogsPersistence() {
-        messages = new ConcurrentLinkedDeque<>();
         messages.add("Email enviado a sebastian.moreno@gmail.com");
         messages.add("Email enviado a prueba@mail.com");
         messages.add("Email enviado a xdkevinxd12@gmail.com");

@@ -19,10 +19,10 @@ import org.apache.activemq.ActiveMQConnectionFactory;
  */
 public class testCli {
 
-    /*public static void main(String[] args) {
+    public static void main(String[] args) {
         testCli ex = new testCli();
         ex.run();
-    }*/
+    }
 
     public void run() {
         //String brokerURL = args[0];

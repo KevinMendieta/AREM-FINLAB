@@ -17,6 +17,8 @@ import javax.jms.MessageConsumer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
 import org.apache.activemq.ActiveMQConnectionFactory;
+import org.edu.eci.arem.logsapp.persistence.LogsPersistence;
+import org.edu.eci.arem.logsapp.persistence.impl.InMemoryLogsPersistence;
 import org.edu.eci.arem.logsapp.services.LogsServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,12 +30,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloWorldConsumer extends Thread implements ExceptionListener {
 
-    private LogsServices logsServices;
-
-    @Autowired
-    public void setLogServices(LogsServices logServices) {
-        this.logsServices = logServices;
-    }
+    private LogsPersistence logsPersistence = new InMemoryLogsPersistence();
     
     public HelloWorldConsumer() {
         
@@ -43,8 +40,8 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
         try {
 
             // Create a ConnectionFactory
-            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://ec2-52-32-88-131.us-west-2.compute.amazonaws.com:61616?jms.useAsyncSend=true");
-
+            //ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://ec2-52-32-88-131.us-west-2.compute.amazonaws.com:61616?jms.useAsyncSend=true");
+            ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://localhost:61616?jms.useAsyncSend=true");
             // Create a Connection
             Connection connection = connectionFactory.createConnection("smx", "smx");
             connection.start();
@@ -71,7 +68,7 @@ public class HelloWorldConsumer extends Thread implements ExceptionListener {
                     TextMessage textMessage = (TextMessage) message;
                     text += textMessage.getText();
                     System.out.println("Received: " + text);
-                    logsServices.storeMessage(text);
+                    logsPersistence.storeMessage(text);
                 } else {
                     System.out.println("Received: " + message);
                 }
